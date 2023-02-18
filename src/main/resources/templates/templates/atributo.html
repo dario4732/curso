@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"/>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1 th:text=" ${xnum1} + ${xnum2}"><strong> </strong></h1>
+ <h1 th:text="'Cifras =>'+${xcifra}"></h1>
+ <h1 th:text="'Dia =>'+${xfecha}"></h1>
+  <h1 th:text="'Valor2 =>'+${xnum2}"><strong></strong></h1>
+ <h3>if</h3>
+ <h1 th:if="${xnum1>10}" th:text="OK"></h1>
+ 
+ <h3>patron ternario</h3>
+ <h1 th:text="${xnum1==13 ? 'minimo':'maximo'}"></h1>
+ 
+  <h3>switch</h3>
+ <div th:switch="${xnum1}">
+ 	<p th:case="12"th:text="'es 12'"> </p>
+ 	<p th:case="13"th:text="'es 13'"> </p>
+	<p th:case="14"th:text="'es 14'"> </p> 
+ </div>
+ <h3> buche for each</h3>
+ <ul>
+ 	<li th:each="pais:${xpaises}" th:text=" ${paisStat.index} +'--'+${pais}"> </li>
+ </ul>
+ <h3>formateos  con helper</h3>
+
+ <h1 th:text="'$' + ${#numbers.formatDecimal(xcifra, 0, 'POINT', 0, 'POINT')}"></h1>
+ <h1 th:text="${#calendars.format(xfecha,'dd-MM-yyyy')}"></h1>
+ 
+ 
+</body>
+</html>
